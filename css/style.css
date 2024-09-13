@@ -1,0 +1,88 @@
+:root {
+    --main-gradient: linear-gradient(to right bottom, #fbdb89, #f48982);
+    --main-clr: #f38e82;
+    --fnt-clr: #615551;
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+    color: var(--fnt-clr);
+    min-height: 160vh;
+}
+
+.bg-main {
+    background-image: var(--main-gradient);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-sec {
+    background-color: #f9f5f3;
+}
+
+.text-main {
+    color: var(--main-clr);
+}
+
+main {
+    height: 150vh;
+    width: 95%;
+    border-radius: .625rem;
+}
+
+
+.logo img {
+    height: 50px;
+}
+
+form {
+
+    background-color: #fff;
+    padding-right: 0 !important;
+    border-radius: 100px;
+    /* padding: 1px; */
+    width: 50% !important;
+
+}
+
+input.search {
+    width: 65%;
+    border: 0;
+    outline: none;
+    display: inline-block;
+    padding: .9375rem 1rem;
+    /* background: #00000049; */
+    border-radius: 6.25rem;
+
+    font-size: 1.125rem;
+    color: var(--fnt-clr);
+}
+input::-webkit-input-placeholder {
+opacity: 0.4;
+}
+
+input.search+button {
+    width: 30%;
+    color: white;
+    border-radius: 6.25rem;
+    transition: all 0.3s;
+}
+
+input.search+button:hover {
+    transform: scale(1.1, 1.05);
+    color: white;
+}
+
+
+
+header .btns button {
+    font-size: 14px;
+}
+
+header .btns button i {
+    font-size: 18px !important;
+}
+
+header .btns button:hover {
+    background-color: #8a898923;
+}
