@@ -7,7 +7,7 @@
 body {
     font-family: "Nunito Sans", sans-serif;
     color: var(--fnt-clr);
-    min-height: 160vh;
+    min-height: 84.375rem;
 }
 
 .bg-main {
@@ -25,22 +25,27 @@ body {
 }
 
 main {
-    height: 150vh;
+    height: 75rem;
     width: 95%;
     border-radius: .625rem;
 }
 
 
 .logo img {
-    height: 50px;
+    height: 3.125rem;
+}
+
+.items {
+    overflow: hidden;
+    height: 62.5rem;
+    padding-block: 1.25rem;
 }
 
 form {
 
     background-color: #fff;
     padding-right: 0 !important;
-    border-radius: 100px;
-    /* padding: 1px; */
+    border-radius: 6.25rem;
     width: 50% !important;
 
 }
@@ -57,8 +62,9 @@ input.search {
     font-size: 1.125rem;
     color: var(--fnt-clr);
 }
+
 input::-webkit-input-placeholder {
-opacity: 0.4;
+    opacity: 0.4;
 }
 
 input.search+button {
@@ -76,13 +82,79 @@ input.search+button:hover {
 
 
 header .btns button {
-    font-size: 14px;
+    font-size: .875rem;
 }
 
 header .btns button i {
-    font-size: 18px !important;
+    font-size: 1.125rem !important;
 }
 
 header .btns button:hover {
     background-color: #8a898923;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 100%;
+    align-items: center;
+    padding-inline: 2.5rem;
+    padding-block: 1.25rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    column-gap: .625rem;
+
+}
+
+.item img {
+    justify-self: center;
+    height: 3.75rem;
+    width: 3.75rem;
+    border-radius: 50%;
+    grid-row: 1/3;
+}
+
+.item h2 {
+    display: inline-block !important;
+    color: var(--main-clr);
+    font-size: 1.125rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    align-self: flex-end;
+    margin: 0;
+
+
+
+}
+
+.item p {
+    justify-self: start;
+    align-self: flex-end;
+    grid-column: 2/3;
+    font-size: .625rem;
+    margin-bottom: .625rem;
+}
+
+.item:hover {
+    background-color: #F9F5F3;
+
+    transform: translateY(-0.25rem);
+}
+
+.page-ctrl button {
+    width: auto;
+    background-color: #F9F5F3;
+    color: var(--main-clr);
+    border-radius: 1.25rem;
+    padding: .5rem 1.25rem;
+    font-weight: 700;
+    font-size: .875rem;
+    border: 0;
+    transition: all 0.3s;
+}
+
+.page-ctrl button:hover {
+    background-color: #e0e0e092;
 }

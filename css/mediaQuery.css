@@ -1,15 +1,39 @@
+@media screen and (max-width:992px) {
+
+    main {
+        height: 80.625rem;
+    }
+
+    .page-ctrl {
+        flex-direction: column;
+        gap: .625rem;
+    }
+
+    .items {
+        height: 1030;
+    }
+}
+
 @media screen and (max-width:764px) {
     header>div {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 20px;
+        gap: 1.25rem;
 
     }
 
     form {
         width: 85% !important;
+    }
+
+    main {
+        height: 86.25rem;
+    }
+
+    .items {
+        height: 62.5rem;
     }
 
 }
