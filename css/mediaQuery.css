@@ -1,7 +1,25 @@
-@media screen and (max-width:992px) {
+@media screen and (max-width:87.5em) {
+    body {
+        min-height: 87.5rem;
+    }
 
     main {
-        height: 80.625rem;
+        height: 84.375rem;
+    }
+
+    .message {
+        width: 75% !important;
+    }
+}
+
+@media screen and (max-width:62em) {
+
+    html {
+        font-size: 90%;
+    }
+
+    main {
+        height: 89rem;
     }
 
     .page-ctrl {
@@ -10,11 +28,35 @@
     }
 
     .items {
-        height: 1030;
+        height: 64.375rem;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ingredients ul {
+
+        grid-template-columns: 1fr;
+        row-gap: 0;
+        gap: .625rem;
+        margin: 0;
+        text-align: center;
     }
 }
 
-@media screen and (max-width:764px) {
+@media screen and (max-width:47.75em) {
+
+    body {
+        min-height: 100vh;
+    }
+
+    main {
+        height: auto;
+        margin-block: 2rem;
+    }
+
     header>div {
         display: flex;
         flex-direction: column;
@@ -28,12 +70,18 @@
         width: 85% !important;
     }
 
-    main {
-        height: 86.25rem;
-    }
+
 
     .items {
         height: 62.5rem;
     }
 
+    .page-ctrl {
+        margin-bottom: 4rem;
+    }
+
+    .howToCook {
+        margin: auto;
+        padding-block: 2rem;
+    }
 }

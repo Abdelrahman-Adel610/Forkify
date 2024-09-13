@@ -10,6 +10,15 @@ body {
     min-height: 84.375rem;
 }
 
+i {
+    color: var(--main-clr);
+    font-size: 1.25rem;
+}
+
+li {
+    list-style: none;
+}
+
 .bg-main {
     background-image: var(--main-gradient);
     background-repeat: no-repeat;
@@ -25,7 +34,7 @@ body {
 }
 
 main {
-    height: 75rem;
+    height: 78.125rem;
     width: 95%;
     border-radius: .625rem;
 }
@@ -47,7 +56,6 @@ form {
     padding-right: 0 !important;
     border-radius: 6.25rem;
     width: 50% !important;
-
 }
 
 input.search {
@@ -56,7 +64,6 @@ input.search {
     outline: none;
     display: inline-block;
     padding: .9375rem 1rem;
-    /* background: #00000049; */
     border-radius: 6.25rem;
 
     font-size: 1.125rem;
@@ -74,7 +81,8 @@ input.search+button {
     transition: all 0.3s;
 }
 
-input.search+button:hover {
+input.search+button:hover,
+.howToCook button:hover {
     transform: scale(1.1, 1.05);
     color: white;
 }
@@ -91,6 +99,10 @@ header .btns button i {
 
 header .btns button:hover {
     background-color: #8a898923;
+}
+
+.w-80 {
+    width: 80%;
 }
 
 .item {
@@ -124,9 +136,6 @@ header .btns button:hover {
     overflow: hidden;
     align-self: flex-end;
     margin: 0;
-
-
-
 }
 
 .item p {
@@ -157,4 +166,91 @@ header .btns button:hover {
 
 .page-ctrl button:hover {
     background-color: #e0e0e092;
+}
+
+.recipe picture {
+    display: inline-block;
+    height: 25rem;
+    width: 100%;
+    background-image: linear-gradient(to right bottom, #fbdb8978, #f48982), url('../../../HTML +CSS/final project/omnifood/Images/meal-2.jpg');
+    background-size: cover;
+}
+
+.recipe header {
+    position: relative;
+
+}
+
+.recipe header h2 {
+    text-align: center;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -90%) skewY(-6deg) !important;
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: uppercase;
+    line-height: 1.7;
+}
+
+.left {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.right i {
+    color: white;
+    background-image: var(--main-gradient);
+    border-radius: 50%;
+    padding: .625rem .875rem;
+
+}
+
+.right .bookmark {
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.right .bookmark:hover {
+    transform: scale(1.05);
+}
+
+.info {
+    background-color: #F9F5F3;
+}
+
+.plusMinus i {
+    transition: all 0 .3s;
+    cursor: pointer;
+}
+
+.ingredients {
+    background-color: #F2EFEE;
+}
+
+.ingredients h2,
+.howToCook h2 {
+    text-transform: uppercase;
+    color: var(--main-clr);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.ingredients ul {
+    margin-inline: auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.25rem;
+}
+
+.howToCook button {
+    color: white;
+    border-radius: 6.25rem;
+    transition: all 0.3s;
+    padding: .8125rem 1.875rem;
+}
+.message
+{
+    font-size: 20px ;
 }
