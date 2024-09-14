@@ -6,12 +6,13 @@ class recipeView {
     this.#parent.innerHTML = `
     <div class="spinner w-100 d-flex justify-content-center  ">
                     <i class="bi bi-arrow-repeat mt-md-5 "></i>
-                </div>
+    </div>
     `;
   }
   #generateRecipe(recipe) {
     return `<div class="recipe  w-100 h-100 ">
                     <picture>
+                    <img src='${recipe.image}'>
                     </picture>
                     <header>
                         <h2 class=" start-50 position-absolute bg-main text-white px-2 py-2">${
@@ -72,23 +73,17 @@ class recipeView {
                     </div>
                 </div>`;
   }
-  #setRecipeImgae(url, html) {
-    const pic = this.#parent.querySelector("picture");
 
-    pic.style.backgroundImage = `linear-gradient(to right bottom, #fbdb8978, #f48982),url(${url})`;
-  }
-  renderRecipe(recipe) {
-
-    const html = this.#generateRecipe(recipe);
-    this.#parent.innerHTML = html;
-    this.#setRecipeImgae(recipe.image);
-  }
   #getIngrident(item) {
     return `<li> <i class="bi bi-check2"></i>
-            ${item.quantity ?new fractional.Fraction (item.quantity) : ""} ${item.unit} ${
-      item.description
-    } 
+          ${item.quantity ? new fractional.Fraction(item.quantity) : ""} ${
+      item.unit
+    } ${item.description} 
 </li>`;
+  }
+  async renderRecipe(recipe) {
+    const html = this.#generateRecipe(recipe);
+    this.#parent.innerHTML = html;
   }
 }
 export default new recipeView();
