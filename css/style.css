@@ -101,6 +101,22 @@ header .btns button:hover {
     background-color: #8a898923;
 }
 
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+.spinner i {
+    font-size: 6.25rem;
+    animation:  infinite linear 2s spinner;
+}
+
 .w-80 {
     width: 80%;
 }
@@ -250,7 +266,7 @@ header .btns button:hover {
     transition: all 0.3s;
     padding: .8125rem 1.875rem;
 }
-.message
-{
-    font-size: 20px ;
+
+.message {
+    font-size: 20px;
 }
