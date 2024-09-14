@@ -7,7 +7,6 @@
 body {
     font-family: "Nunito Sans", sans-serif;
     color: var(--fnt-clr);
-    min-height: 84.375rem;
 }
 
 i {
@@ -34,9 +33,10 @@ li {
 }
 
 main {
-    height: 78.125rem;
+    min-height: 78.125rem;
     width: 95%;
     border-radius: .625rem;
+    margin-block: 96px;
 }
 
 
@@ -114,7 +114,7 @@ header .btns button:hover {
 
 .spinner i {
     font-size: 6.25rem;
-    animation:  infinite linear 2s spinner;
+    animation: infinite linear 2s spinner;
 }
 
 .w-80 {
@@ -188,8 +188,9 @@ header .btns button:hover {
     display: inline-block;
     height: 25rem;
     width: 100%;
-    background-image: linear-gradient(to right bottom, #fbdb8978, #f48982), url('../../../HTML +CSS/final project/omnifood/Images/meal-2.jpg');
+    /* background-image: linear-gradient(to right bottom, #fbdb8978, #f48982), url('../../../HTML +CSS/final project/omnifood/Images/meal-2.jpg'); */
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .recipe header {

@@ -19,7 +19,7 @@
     }
 
     main {
-        height: 89rem;
+        min-height: 89rem;
     }
 
     .page-ctrl {

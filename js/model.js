@@ -18,6 +18,7 @@ export async function loadRecipe(id) {
       publisher: recipe.publisher,
       servings: recipe.servings,
       url: recipe.source_url,
+      title: recipe.title,
     };
   } catch (err) {
     alert(err.message);
