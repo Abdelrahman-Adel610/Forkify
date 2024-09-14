@@ -82,7 +82,7 @@ input.search+button {
 }
 
 input.search+button:hover,
-.howToCook button:hover {
+.howToCook a:hover {
     transform: scale(1.1, 1.05);
     color: white;
 }
@@ -244,7 +244,7 @@ header .btns button:hover {
     row-gap: 1.25rem;
 }
 
-.howToCook button {
+.howToCook a {
     color: white;
     border-radius: 6.25rem;
     transition: all 0.3s;
