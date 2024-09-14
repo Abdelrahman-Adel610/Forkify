@@ -85,5 +85,9 @@ class recipeView {
     const html = this.#generateRecipe(recipe);
     this.#parent.innerHTML = html;
   }
+  eventHandler(handler) {
+    window.addEventListener("hashchange", handler);
+    window.addEventListener("load", handler);
+  }
 }
 export default new recipeView();

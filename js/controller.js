@@ -16,7 +16,6 @@ async function getRecipe() {
   }
 }
 function init() {
-  window.addEventListener("hashchange", getRecipe);
-  window.addEventListener("load", getRecipe);
+  recipeView.eventHandler(getRecipe);
 }
 init();
