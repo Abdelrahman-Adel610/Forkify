@@ -32,6 +32,10 @@ li {
     width: 40%;
 }
 
+.w-90 {
+    width: 90%;
+}
+
 .text-main {
     color: var(--main-clr);
 }
@@ -69,7 +73,7 @@ input.search {
 }
 
 input::-webkit-input-placeholder {
-    opacity: 0.4;
+    opacity: 0.4 !important;
 }
 
 input.search+button {
@@ -79,8 +83,20 @@ input.search+button {
     transition: all 0.3s;
 }
 
+.upload button {
+    width: 25%;
+    color: white;
+    border-radius: 6.25rem;
+    transition: all 0.3s;
+}
+
+.upload button i {
+    color: white;
+}
+
 input.search+button:hover,
-.howToCook a:hover {
+.howToCook a:hover,
+.upload button:hover {
     transform: scale(1.1, 1.05);
     color: white;
 }
@@ -101,7 +117,7 @@ header .btns button:hover {
 
 .bookmark-list {
     transition: all 1s;
-    z-index: 99;
+    z-index: 9;
 }
 
 .bm:hover+.bookmark-list {
@@ -241,7 +257,7 @@ header .btns button:hover {
     line-height: 1.7;
 }
 
-.left {
+.info .left {
     font-size: 1rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -302,4 +318,51 @@ header .btns button:hover {
 
 .message {
     font-size: 20px;
+}
+
+.addRecipe {
+    z-index: 999;
+}
+
+.overlay {
+    background-color: #1e1e1ec3;
+    backdrop-filter: blur(5px);
+    z-index: 99;
+}
+
+.addRecipe i {
+    color: black;
+    font-size: 2.625rem;
+    top: .25rem;
+    right: .625rem;
+}
+
+.yourRecipe h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2.8fr;
+    gap: 24px 30px;
+    align-items: center;
+}
+
+.addRecipe {
+    width: 60%;
+}
+
+.addRecipe h2 {
+    text-transform: uppercase;
+}
+
+.addRecipe i {
+    cursor: pointer;
+}
+
+.addRecipe input:focus {
+    box-shadow: 0px 0px 6px 1px var(--main-clr);
+    border-color: var(--main-clr);
+    background-color: #F9F5F3;
 }
