@@ -1,12 +1,14 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import { API_LINK } from "./config";
+import { API_LINK, ITEMS_PER_PAGE } from "./config";
 import { getJSON } from "./helpers";
 export const state = {
   recipe: {},
   search: {
     query: "",
     results: [],
+    currentPage: 1,
+    maxPages: 1,
   },
 };
 export async function loadRecipe(id) {
@@ -43,7 +45,14 @@ export async function search(query) {
         imageUrl: el.image_url,
       };
     });
+    state.search.maxPages = Math.ceil(
+      state.search.results.length / ITEMS_PER_PAGE
+    );
   } catch (err) {
     throw err;
   }
+}
+export function getDataOfPage(page = state.search.currentPage) {
+  state.search.currentPage = page;
+  return state.search.results.slice((page - 1) * 10, page * 10);
 }

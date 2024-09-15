@@ -4,6 +4,7 @@ import * as model from "./model";
 import recipeView from "./view/recipeView";
 import searchView from "./view/searchView";
 import resultsView from "./view/resultsView";
+import paginationView from "./view/paginationView.js";
 if (module.hot) module.hot.accept();
 
 async function getRecipe() {
@@ -23,13 +24,34 @@ async function getRecipe() {
 async function searchFor() {
   try {
     const query = searchView.getQuery();
+
     resultsView.renderSpinner();
     await model.search(query);
     if (!model.state.search.results.length) throw new Error();
-    resultsView.renderResults(model.state.search.results);
+    const data = model.getDataOfPage(2);
+    resultsView.renderResults(data);
+    generatePagination();
   } catch (err) {
     resultsView.renderError();
   }
+}
+function generatePagination() {
+  const currentPage = model.state.search.currentPage;
+  const max = model.state.search.maxPages;
+
+  const options = { left: 0, right: 0 };
+  if (currentPage === 1 && max > 1) {
+    options.right = 1;
+  }
+  if (currentPage === max && currentPage > 1) {
+    options.left = 1;
+  }
+  if (currentPage > 1 && currentPage < max) {
+    options.right = 1;
+    options.left = 1;
+  }
+
+  paginationView.renderPagination(currentPage, options);
 }
 function init() {
   recipeView.eventHandler(getRecipe);
