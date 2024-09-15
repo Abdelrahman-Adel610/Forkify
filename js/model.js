@@ -18,7 +18,7 @@ export async function loadRecipe(id) {
       title: recipe.title,
     };
   } catch (err) {
-    alert(err.message);
+    // alert(err.message);
     throw err;
   }
 }

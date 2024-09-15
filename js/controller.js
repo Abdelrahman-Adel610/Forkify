@@ -7,12 +7,15 @@ if (module.hot) module.hot.accept();
 async function getRecipe() {
   try {
     const id = location.hash.slice(1);
-    if (!id) return;
+    if (!id) {
+      recipeView.renderMSG();
+      return;
+    }
     recipeView.renderSpinner();
     await model.loadRecipe(id);
     recipeView.renderRecipe(model.state.recipe);
   } catch (err) {
-    console.error(err.message);
+    recipeView.renderError();
   }
 }
 function init() {

@@ -2,6 +2,8 @@
 import fractional from "fractional";
 class recipeView {
   #parent = document.querySelector(".main-item");
+  #errorMSG = "Couldn't find the recipe please try again.";
+  #MSG = "Start by searching for a recipe or an ingredient. Have fun!";
   renderSpinner() {
     this.#parent.innerHTML = `
     <div class="spinner w-100 d-flex justify-content-center  ">
@@ -88,6 +90,22 @@ class recipeView {
   eventHandler(handler) {
     window.addEventListener("hashchange", handler);
     window.addEventListener("load", handler);
+  }
+  renderError(message = this.#errorMSG) {
+    this.#parent.innerHTML = `  <div class="message d-flex w-50 gap-3 mt-4 mx-auto ">
+                    <i class="bi bi-exclamation-triangle text-danger"></i>
+                    <p>
+                       ${message}
+                    </p>
+                </div>`;
+  }
+  renderMSG(message = this.#MSG) {
+    this.#parent.innerHTML = `  <div class="message d-flex w-50 gap-3 mt-4 mx-auto ">
+   <i class="bi bi-emoji-smile"></i>
+                    <p>
+                       ${message}
+                    </p>
+                </div>`;
   }
 }
 export default new recipeView();
