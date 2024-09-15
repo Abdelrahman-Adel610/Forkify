@@ -1,17 +1,15 @@
-// import { View } from "./view.js";
+import { View } from "./view.js";
 import fractional from "fractional";
-class recipeView {
-  #parent = document.querySelector(".main-item");
-  #errorMSG = "Couldn't find the recipe please try again.";
-  #MSG = "Start by searching for a recipe or an ingredient. Have fun!";
-  renderSpinner() {
-    this.#parent.innerHTML = `
-    <div class="spinner w-100 d-flex justify-content-center  ">
-                    <i class="bi bi-arrow-repeat mt-md-5 "></i>
-    </div>
-    `;
+class recipeView extends View {
+  constructor() {
+    super(
+      document.querySelector(".main-item"),
+      "Couldn't find the recipe please try again.",
+      "Start by searching for a recipe or an ingredient. Have fun!"
+    );
   }
-  #generateRecipe(recipe) {
+
+  _generateRecipe(recipe) {
     return `<div class="recipe  w-100 h-100 ">
                     <picture>
                     <img src='${recipe.image}'>
@@ -56,7 +54,7 @@ class recipeView {
                         <ul class="my-4">
                             
                             ${recipe.ingredients.reduce(
-                              (curr, i) => (curr += this.#getIngrident(i)),
+                              (curr, i) => (curr += this._getIngrident(i)),
                               ""
                             )}
                         
@@ -76,7 +74,7 @@ class recipeView {
                 </div>`;
   }
 
-  #getIngrident(item) {
+  _getIngrident(item) {
     return `<li> <i class="bi bi-check2"></i>
           ${item.quantity ? new fractional.Fraction(item.quantity) : ""} ${
       item.unit
@@ -84,28 +82,12 @@ class recipeView {
 </li>`;
   }
   async renderRecipe(recipe) {
-    const html = this.#generateRecipe(recipe);
-    this.#parent.innerHTML = html;
+    const html = this._generateRecipe(recipe);
+    this._parent.innerHTML = html;
   }
   eventHandler(handler) {
     window.addEventListener("hashchange", handler);
     window.addEventListener("load", handler);
-  }
-  renderError(message = this.#errorMSG) {
-    this.#parent.innerHTML = `  <div class="message d-flex w-50 gap-3 mt-4 mx-auto ">
-                    <i class="bi bi-exclamation-triangle text-danger"></i>
-                    <p>
-                       ${message}
-                    </p>
-                </div>`;
-  }
-  renderMSG(message = this.#MSG) {
-    this.#parent.innerHTML = `  <div class="message d-flex w-50 gap-3 mt-4 mx-auto ">
-   <i class="bi bi-emoji-smile"></i>
-                    <p>
-                       ${message}
-                    </p>
-                </div>`;
   }
 }
 export default new recipeView();
