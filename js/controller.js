@@ -34,7 +34,6 @@ async function searchFor() {
   }
 }
 function goToPage(page = 1) {
-
   const data = model.getDataOfPage(page);
   resultsView.renderResults(data);
   generatePagination();
@@ -57,8 +56,18 @@ function generatePagination() {
 
   paginationView.renderPagination(currentPage, options);
 }
+function updateServings(num) {
+  const currnetData = model.state.recipe;
+  const total = model.state.recipe.servings;
+  currnetData.ingredients.forEach((el) => {
+    el.quantity = (num / total) * el.quantity;
+  });
+  model.state.recipe.servings = num;
+  recipeView.renderRecipe(model.state.recipe);
+}
 function init() {
   recipeView.eventHandler(getRecipe);
+  recipeView.servingsClickHandler(updateServings);
   searchView.eventHandler(searchFor);
   paginationView.eventHandler(goToPage);
 }

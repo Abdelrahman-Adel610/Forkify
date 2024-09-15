@@ -36,10 +36,13 @@ class RecipeView extends View {
                                   recipe.servings
                                 } </span> servings</p>
                                 <div class="plusMinus">
+                                    <i class="bi bi-dash-circle" data-next='${
+                                      recipe.servings - 1
+                                    }'></i>
 
-                                    <i class="bi bi-dash-circle"></i>
-
-                                    <i class="bi bi-plus-circle"></i>
+                                    <i class="bi bi-plus-circle" data-next='${
+                                      recipe.servings + 1
+                                    }'></i>
                                 </div>
                             </div>
                         </div>
@@ -88,6 +91,15 @@ class RecipeView extends View {
   eventHandler(handler) {
     window.addEventListener("hashchange", handler);
     window.addEventListener("load", handler);
+  }
+  servingsClickHandler(handler) {
+    this._parent.addEventListener("click", function (e) {
+      const element = e.target.closest("i[data-next]");
+      if (!element) return;
+      const { next } = element.dataset;
+      if (next <= 0) return;
+      handler(+next);
+    });
   }
 }
 export default new RecipeView();
