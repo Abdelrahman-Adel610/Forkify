@@ -28,12 +28,16 @@ async function searchFor() {
     resultsView.renderSpinner();
     await model.search(query);
     if (!model.state.search.results.length) throw new Error();
-    const data = model.getDataOfPage(2);
-    resultsView.renderResults(data);
-    generatePagination();
+    goToPage();
   } catch (err) {
     resultsView.renderError();
   }
+}
+function goToPage(page = 1) {
+
+  const data = model.getDataOfPage(page);
+  resultsView.renderResults(data);
+  generatePagination();
 }
 function generatePagination() {
   const currentPage = model.state.search.currentPage;
@@ -56,5 +60,6 @@ function generatePagination() {
 function init() {
   recipeView.eventHandler(getRecipe);
   searchView.eventHandler(searchFor);
+  paginationView.eventHandler(goToPage);
 }
 init();

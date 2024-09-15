@@ -9,7 +9,6 @@ class PaginationView extends View {
   }
   renderPagination(currentPage, options = { left, right }) {
     this._clear();
-    // console.log(options, currentPage);
 
     if (options.left) {
       const left = `<button data-page='${
@@ -27,6 +26,14 @@ class PaginationView extends View {
   _clear() {
     this._parent.innerHTML = "";
   }
-  eventHandler(handler) {}
+  eventHandler(handler) {
+    this._parent.addEventListener("click", function (e) {
+      const element = e.target.closest("button");
+      if (element) {
+        const page = +element.dataset.page;
+        handler(page);
+      }
+    });
+  }
 }
 export default new PaginationView();

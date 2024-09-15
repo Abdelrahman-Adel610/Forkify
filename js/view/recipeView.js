@@ -67,7 +67,7 @@ class RecipeView extends View {
                             This recipe was carefully designed and tested by <span class="fw-bolder"> Closet
                                 Cooking.</span> Please check out directions at their website.
                         </p>
-                        <a class="btn bg-main d-inline-block" href="${
+                        <a class="btn bg-main d-inline-block" target="_blank" href="${
                           recipe.url
                         }">Directions →</a>
                     </div>

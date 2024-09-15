@@ -54,5 +54,8 @@ export async function search(query) {
 }
 export function getDataOfPage(page = state.search.currentPage) {
   state.search.currentPage = page;
-  return state.search.results.slice((page - 1) * 10, page * 10);
+  return state.search.results.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE
+  );
 }
