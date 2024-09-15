@@ -44,11 +44,12 @@ main {
     height: 3.125rem;
 }
 
-.items {
-    overflow: hidden;
-    height: 62.5rem;
-    padding-block: 1.25rem;
+
+.list {
+    min-height: 81.25rem;
 }
+
+
 
 form {
 
@@ -122,18 +123,25 @@ header .btns button:hover {
 }
 
 .item {
+
+    transition: all 0.3s;
+}
+
+.item a {
     display: grid;
     grid-template-columns: 1fr 3fr;
     width: 100%;
     align-items: center;
     padding-inline: 2.5rem;
     padding-block: 1.25rem;
-    transition: all 0.3s;
     cursor: pointer;
     position: relative;
     column-gap: .625rem;
-
+    text-decoration: none;
+    color: inherit;
 }
+
+
 
 .item img {
     justify-self: center;

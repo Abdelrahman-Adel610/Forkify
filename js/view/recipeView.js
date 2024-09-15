@@ -1,6 +1,6 @@
 import { View } from "./view.js";
 import fractional from "fractional";
-class recipeView extends View {
+class RecipeView extends View {
   constructor() {
     super(
       document.querySelector(".main-item"),
@@ -90,4 +90,4 @@ class recipeView extends View {
     window.addEventListener("load", handler);
   }
 }
-export default new recipeView();
+export default new RecipeView();
