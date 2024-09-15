@@ -22,14 +22,9 @@
         min-height: 89rem;
     }
 
-    .page-ctrl {
-        flex-direction: column;
-        gap: .625rem;
-    }
 
-    .items {
-        height: 64.375rem;
-    }
+
+
 
     .info {
         flex-direction: column;
@@ -55,7 +50,7 @@
     main {
         height: auto;
         margin-block: 2rem;
-    } 
+    }
 
     header>div {
         display: flex;
@@ -72,16 +67,20 @@
 
 
 
-    .items {
-        height: 62.5rem;
+    .list {
+        padding-bottom: 3rem !important;
     }
 
-    .page-ctrl {
-        margin-bottom: 4rem;
-    }
 
     .howToCook {
         margin: auto;
         padding-block: 2rem;
+    }
+
+    .bookmark-list {
+        left: 50% !important;
+        top: 100% !important;
+        width: 80% !important;
+        transform: translateX(-50%);
     }
 }

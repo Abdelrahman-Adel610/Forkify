@@ -28,6 +28,10 @@ li {
     background-color: #f9f5f3;
 }
 
+.w-40 {
+    width: 40%;
+}
+
 .text-main {
     color: var(--main-clr);
 }
@@ -43,13 +47,6 @@ main {
 .logo img {
     height: 3.125rem;
 }
-
-
-.list {
-    min-height: 81.25rem;
-}
-
-
 
 form {
 
@@ -100,6 +97,20 @@ header .btns button i {
 
 header .btns button:hover {
     background-color: #8a898923;
+}
+
+.bookmark-list {
+    transition: all 1s;
+    z-index: 99;
+}
+
+.bm:hover+.bookmark-list {
+    opacity: 100 !important;
+
+}
+
+.bookmark-list:hover {
+    opacity: 100 !important;
 }
 
 @keyframes spinner {

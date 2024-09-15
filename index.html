@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="css/main.scss">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaQuery.css">
-    <script type="module" src="js/controller.js"></script>
+    <!-- <script type="module" src="js/controller.js"></script> -->
 </head>
 
 <body class="bg-main d-flex justify-content-center align-items-center container">
     <main class=" bg-sec overflow-hidden">
-        <header class="mx-5 my-4">
+        <header class="mx-5 my-4  position-relative">
             <div class="row row-cols-md-3 row-cols-1  d-flex align-items-center justify-content-between">
                 <div class="col-md-2 logo  d-flex justify-content-center">
                     <img src="Images/logo.png" alt="logo">
@@ -32,11 +32,30 @@
 
                 <div class="col-md-3  d-flex justify-content-center btns">
                     <button class="btn"><i class="bi bi-pencil-square text-main"></i> ADD RECIPE</button>
-                    <button class="btn"><i class="bi bi-bookmark text-main"></i> BOOKMARKS</button>
+                    <button class="btn bm"><i class="bi bi-bookmark text-main"></i> BOOKMARKS</button>
+                    <div class="bookmark-list position-absolute end-0 top-100 bg-white w-40 opacity-0">
+                        <div class="row row-cols-1">
+                            <div class="item d-none">
+                                <a href="#664c8f193e7aa067e94e8706">
+                                    <img src="../../HTML +CSS/final project/omnifood/Images/customer-1.jpg" alt="">
+                                    <h2>Cauliflower Pizza Crust (with BBQ Chicken)
+                                        zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzza
+                                    </h2>
+                                    <p>CLOSET COOKING</p>
+                                </a>
+                            </div>
+                            <div class="message d-flex w-75 gap-3  mt-4 mx-auto">
+                                <i class="bi bi-exclamation-triangle text-danger"></i>
+                                <p>
+                                    No bookmarks yet. Find a nice recipe and bookmark it ;)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
-        <div class="h-100 row">
+        <div class="h-100 row position-relative">
             <div class="list bg-white col-md-4">
                 <div class="row row-cols-1">
                     <div class="item">
@@ -139,6 +158,7 @@
                     </p>
                 </div>
             </div>
+        </div>
     </main>
 </body>
 
