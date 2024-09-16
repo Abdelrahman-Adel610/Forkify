@@ -11,6 +11,7 @@ if (module.hot) module.hot.accept();
 async function getRecipe() {
   try {
     const id = location.hash.slice(1);
+
     if (!model.state.bookmarks.length) {
       bookmarkView.renderMSG();
     }
@@ -23,8 +24,8 @@ async function getRecipe() {
     recipeView.renderRecipe(model.state.recipe);
     /************/
     const data = model.getDataOfPage(model.state.search.currentPage);
-    resultsView.update(data);
-    bookmarkView.update(model.state.bookmarks);
+    if (data) resultsView.update(data);
+    if (model.state.bookmarks) bookmarkView.update(model.state.bookmarks);
   } catch (err) {
     recipeView.renderError();
   }
@@ -83,11 +84,18 @@ function bookmark() {
     bookmarkView.renderMSG();
   }
 }
+function getStoredBookmarks() {
+  const data = model.retrieveBookmarks();
+  if (data.length) {
+    bookmarkView.renderResults(model.state.bookmarks);
+  } else bookmarkView.renderMSG();
+}
 function init() {
   recipeView.eventHandler(getRecipe);
   recipeView.servingsClickHandler(updateServings);
   recipeView.bookmarkClickHandler(bookmark);
   searchView.eventHandler(searchFor);
   paginationView.eventHandler(goToPage);
+  bookmarkView.setGetBookmarksHandler(model.saveBookmarks, getStoredBookmarks);
 }
 init();

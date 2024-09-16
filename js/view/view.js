@@ -35,7 +35,6 @@ export class View {
         .querySelectorAll("*"),
     ];
     const curr = this._parent.querySelectorAll("*");
-
     newel.forEach((el, i) => {
       // UPDATING ATTRIBUTES
       if (!el.isEqualNode(curr[i])) {

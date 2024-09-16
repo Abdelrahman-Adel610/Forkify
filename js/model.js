@@ -73,3 +73,11 @@ export function unBookmarkRecipe() {
   const index = state.bookmarks.findIndex((el) => el.id === state.recipe.id);
   state.bookmarks.splice(index, 1);
 }
+export function saveBookmarks() {
+  localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
+}
+export function retrieveBookmarks() {
+  const data = JSON.parse(localStorage.getItem("bookmarks"));
+  if (data) state.bookmarks = data;
+  return data;
+}
