@@ -12,7 +12,6 @@ class ResultsView extends View {
   }
   _generateHTML(data) {
     const id = location.hash.slice(1);
-    console.log(id);
 
     return data
       .map(

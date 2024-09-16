@@ -370,3 +370,12 @@ header .btns button:hover {
     border-color: var(--main-clr);
     background-color: #F9F5F3;
 }
+
+.bi-person-circle {
+    color: var(--fnt-clr) !important;
+    font-size: 24px;
+}
+
+.filled {
+    background-color: #fff !important;
+}

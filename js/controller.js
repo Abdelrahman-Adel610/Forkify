@@ -19,8 +19,8 @@ async function getRecipe() {
     recipeView.renderRecipe(model.state.recipe);
     /************/
     const data = model.getDataOfPage(model.state.search.currentPage);
-
     resultsView.update(data);
+    console.log(model.state.bookmarks);
   } catch (err) {
     recipeView.renderError();
   }
@@ -70,9 +70,17 @@ function updateServings(num) {
   // recipeView.renderRecipe(model.state.recipe);
   recipeView.update(model.state.recipe);
 }
+function bookmark() {
+
+  if (!model.state.recipe.bookmarked) model.bookmarkRecipe();
+  else model.unBookmarkRecipe();
+
+  recipeView.update(model.state.recipe);
+}
 function init() {
   recipeView.eventHandler(getRecipe);
   recipeView.servingsClickHandler(updateServings);
+  recipeView.bookmarkClickHandler(bookmark);
   searchView.eventHandler(searchFor);
   paginationView.eventHandler(goToPage);
 }

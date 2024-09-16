@@ -48,7 +48,9 @@ class RecipeView extends View {
                         </div>
                         <div class="right">
                             <div class="bookmark">
-                                <i class="bi bi-bookmark"></i>
+                                <i class="bi bi-bookmark${
+                                  recipe.bookmarked ? "-fill" : ""
+                                }"></i>
                             </div>
                         </div>
                     </div>
@@ -99,6 +101,17 @@ class RecipeView extends View {
       const { next } = element.dataset;
       if (next <= 0) return;
       handler(+next);
+    });
+  }
+  bookmarkClickHandler(handler) {
+    this._parent.addEventListener("click", function (e) {
+      if (
+        e.target.closest(".bi-bookmark") ||
+        e.target.closest(".bi-bookmark-fill")
+      ) {
+
+        handler();
+      }
     });
   }
 }

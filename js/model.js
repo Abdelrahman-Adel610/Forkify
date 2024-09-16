@@ -10,6 +10,7 @@ export const state = {
     currentPage: 1,
     maxPages: 1,
   },
+  bookmarks: [],
 };
 export async function loadRecipe(id) {
   try {
@@ -24,11 +25,15 @@ export async function loadRecipe(id) {
       servings: recipe.servings,
       url: recipe.source_url,
       title: recipe.title,
+      bookmarked: Isbookmarked(id),
     };
   } catch (err) {
     // alert(err.message);
     throw err;
   }
+}
+function Isbookmarked(id) {
+  return state.bookmarks.some((el) => el === id);
 }
 export async function search(query) {
   try {
@@ -58,4 +63,14 @@ export function getDataOfPage(page = state.search.currentPage) {
     (page - 1) * ITEMS_PER_PAGE,
     page * ITEMS_PER_PAGE
   );
+}
+export function bookmarkRecipe() {
+  state.recipe.bookmarked = 1;
+  state.bookmarks.push(state.recipe.id);
+}
+export function unBookmarkRecipe() {
+  state.recipe.bookmarked = 0;
+  const index = state.bookmarks.findIndex((el) => el === state.recipe.id);
+  console.log(index);
+  state.bookmarks.splice(index, 1);
 }
