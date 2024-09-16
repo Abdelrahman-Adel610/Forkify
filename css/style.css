@@ -361,8 +361,13 @@ header .btns button:hover {
     text-transform: uppercase;
 }
 
-.addRecipe i {
+/* .addRecipe i {
     cursor: pointer;
+} */
+.close
+{
+    cursor: pointer;
+
 }
 
 .addRecipe input:focus {
