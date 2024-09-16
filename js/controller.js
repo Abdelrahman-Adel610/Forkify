@@ -1,12 +1,14 @@
 import "regenerator-runtime/runtime"; //polyfilling async
 import "core-js/stable"; //polyfilling ES6+ features
 import * as model from "./model";
+import { SUCCESS_MSG_TIME, SPINNER_TIME } from "./config.js";
 import recipeView from "./view/recipeView";
 import searchView from "./view/searchView";
 import resultsView from "./view/resultsView";
 import bookmarkView from "./view/bookmarkView.js";
 import paginationView from "./view/paginationView.js";
 import AddNewRecipe from "./view/addNewRecipe.js";
+import "core-js/stable";
 if (module.hot) module.hot.accept();
 
 async function getRecipe() {
@@ -76,7 +78,8 @@ function updateServings(num) {
   // recipeView.renderRecipe(model.state.recipe);
   recipeView.update(model.state.recipe);
 }
-function bookmark() {
+function bookmark(recipe = model.state.recipe) {
+  model.state.recipe = recipe;
   if (!model.state.recipe.bookmarked) model.bookmarkRecipe();
   else model.unBookmarkRecipe();
   recipeView.update(model.state.recipe);
@@ -91,8 +94,22 @@ function getStoredBookmarks() {
     bookmarkView.renderResults(model.state.bookmarks);
   } else bookmarkView.renderMSG();
 }
-function uploadRecipe(data) {
-  console.log(data);
+async function uploadRecipe(data) {
+  try {
+    let recipe = await model.uploadRecipe(data);
+    recipeView.renderRecipe(recipe);
+    recipe = model.recipeFormatter(recipe);
+    bookmark(recipe);
+    AddNewRecipe.renderSpinner();
+    setTimeout(function () {
+      AddNewRecipe.renderMSG();
+    }, SPINNER_TIME * 1000);
+    setTimeout(function () {
+      AddNewRecipe.toggleModal();
+    }, SUCCESS_MSG_TIME * 1000 + SPINNER_TIME * 1000);
+  } catch (err) {
+    AddNewRecipe.renderError(err.message);
+  }
 }
 function init() {
   recipeView.eventHandler(getRecipe);

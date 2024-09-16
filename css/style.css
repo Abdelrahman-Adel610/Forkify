@@ -335,7 +335,7 @@ header .btns button:hover {
 }
 
 .addRecipe i {
-    color: black;
+    color: var(--main-clr);
     font-size: 2.625rem;
     top: .25rem;
     right: .625rem;
@@ -364,10 +364,9 @@ header .btns button:hover {
 /* .addRecipe i {
     cursor: pointer;
 } */
-.close
-{
+.close i {
     cursor: pointer;
-
+    color: black;
 }
 
 .addRecipe input:focus {

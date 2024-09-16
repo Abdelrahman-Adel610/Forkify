@@ -14,9 +14,30 @@ async function tirmAfter(s) {
 export async function getJSON(url) {
   try {
     const response = await Promise.race([fetch(url), tirmAfter(TIMEOUT_LIMIT)]);
-    const data = await response.json();    
+    const data = await response.json();
     if (!response.ok) throw new Error(data.message);
     return data;
+  } catch (err) {
+    throw err;
+  }
+}
+export async function sendJSON(url, data) {
+  try {
+
+    const response = await Promise.race([
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }),
+      tirmAfter(TIMEOUT_LIMIT),
+    ]);
+    const dataBack = await response.json();
+
+    if (!response.ok) throw new Error(data.message);
+    return dataBack;
   } catch (err) {
     throw err;
   }
