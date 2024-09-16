@@ -25,7 +25,6 @@ async function getRecipe() {
     const data = model.getDataOfPage(model.state.search.currentPage);
     resultsView.update(data);
     bookmarkView.update(model.state.bookmarks);
-    console.log(model.state.bookmarks);
   } catch (err) {
     recipeView.renderError();
   }
@@ -80,6 +79,9 @@ function bookmark() {
   else model.unBookmarkRecipe();
   recipeView.update(model.state.recipe);
   bookmarkView.renderResults(model.state.bookmarks);
+  if (!model.state.bookmarks.length) {
+    bookmarkView.renderMSG();
+  }
 }
 function init() {
   recipeView.eventHandler(getRecipe);

@@ -71,6 +71,5 @@ export function bookmarkRecipe() {
 export function unBookmarkRecipe() {
   state.recipe.bookmarked = 0;
   const index = state.bookmarks.findIndex((el) => el.id === state.recipe.id);
-  console.log(index);
   state.bookmarks.splice(index, 1);
 }
