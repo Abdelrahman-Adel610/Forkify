@@ -33,7 +33,7 @@ export async function loadRecipe(id) {
   }
 }
 function Isbookmarked(id) {
-  return state.bookmarks.some((el) => el === id);
+  return state.bookmarks.some((el) => el.id === id);
 }
 export async function search(query) {
   try {
@@ -47,7 +47,7 @@ export async function search(query) {
         id: el.id,
         title: el.title,
         publisher: el.publisher,
-        imageUrl: el.image_url,
+        image: el.image_url,
       };
     });
     state.search.maxPages = Math.ceil(
@@ -66,11 +66,11 @@ export function getDataOfPage(page = state.search.currentPage) {
 }
 export function bookmarkRecipe() {
   state.recipe.bookmarked = 1;
-  state.bookmarks.push(state.recipe.id);
+  state.bookmarks.push(state.recipe);
 }
 export function unBookmarkRecipe() {
   state.recipe.bookmarked = 0;
-  const index = state.bookmarks.findIndex((el) => el === state.recipe.id);
+  const index = state.bookmarks.findIndex((el) => el.id === state.recipe.id);
   console.log(index);
   state.bookmarks.splice(index, 1);
 }

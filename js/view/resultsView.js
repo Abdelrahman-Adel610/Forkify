@@ -19,7 +19,7 @@ class ResultsView extends View {
           `
              <div class="item ${el.id === id ? "selected" : ""}">
                       <a href="#${el.id}">
-                          <img src="${el.imageUrl}" alt="${el.title}">
+                          <img src="${el.image}" alt="${el.title}">
                           <h2>${el.title}
                           </h2>
                           <p>${el.publisher}</p>

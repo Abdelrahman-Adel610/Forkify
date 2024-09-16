@@ -4,12 +4,16 @@ import * as model from "./model";
 import recipeView from "./view/recipeView";
 import searchView from "./view/searchView";
 import resultsView from "./view/resultsView";
+import bookmarkView from "./view/bookmarkView.js";
 import paginationView from "./view/paginationView.js";
 if (module.hot) module.hot.accept();
 
 async function getRecipe() {
   try {
     const id = location.hash.slice(1);
+    if (!model.state.bookmarks.length) {
+      bookmarkView.renderMSG();
+    }
     if (!id) {
       recipeView.renderMSG();
       return;
@@ -20,6 +24,7 @@ async function getRecipe() {
     /************/
     const data = model.getDataOfPage(model.state.search.currentPage);
     resultsView.update(data);
+    bookmarkView.update(model.state.bookmarks);
     console.log(model.state.bookmarks);
   } catch (err) {
     recipeView.renderError();
@@ -71,11 +76,10 @@ function updateServings(num) {
   recipeView.update(model.state.recipe);
 }
 function bookmark() {
-
   if (!model.state.recipe.bookmarked) model.bookmarkRecipe();
   else model.unBookmarkRecipe();
-
   recipeView.update(model.state.recipe);
+  bookmarkView.renderResults(model.state.bookmarks);
 }
 function init() {
   recipeView.eventHandler(getRecipe);
