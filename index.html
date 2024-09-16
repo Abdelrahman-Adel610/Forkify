@@ -31,7 +31,7 @@
                 </form>
 
                 <div class="col-md-3  d-flex justify-content-center btns">
-                    <button class="btn"><i class="bi bi-pencil-square text-main"></i> ADD RECIPE</button>
+                    <button class="btn addRecipeBtn"><i class="bi bi-pencil-square text-main"></i> ADD RECIPE</button>
                     <button class="btn bm"><i class="bi bi-bookmark text-main"></i> BOOKMARKS</button>
                     <div class="bookmark-list position-absolute end-0 top-100 bg-white w-40 opacity-0 overflow-hidden">
                         <div class="row row-cols-1">
@@ -160,65 +160,73 @@
         </div>
 
         <!-- ADD RECIPE -->
-        <div class="overlay position-fixed top-0 bottom-0 start-0 end-0 h-100 d-none">
-        </div>
-        <div class="addRecipe position-fixed top-50 start-50 translate-middle bg-white  rounded rounded-2 d-none">
-            <div class="close">
-                <i class="bi bi-x position-absolute "></i>
+        <form class="AddRecipeForm d-none position-relative h-100 w-100">
+
+            <div class="overlay position-fixed top-0 bottom-0 start-0 end-0 h-100">
             </div>
-            <form class="yourRecipe d-flex w-100 mx-auto py-5
+            <div class="addRecipe position-fixed top-50 start-50 translate-middle bg-white  rounded rounded-2 ">
+                <div class="close">
+                    <i class="bi bi-x position-absolute "></i>
+                </div>
+                <div class="yourRecipe d-flex w-100 mx-auto py-5
             px-5 h-100">
-                <div class="left w-50 px-4">
-                    <h2 class="mb-4">Recipe data</h2>
-                    <div class="grid">
-                        <label for="title">Title</label>
-                        <input class="form-control" type="text" placeholder="" id="title" value="test">
+                    <div class="left w-50 px-4">
+                        <h2 class="mb-4">Recipe data</h2>
+                        <div class="grid">
+                            <label for="title">Title</label>
+                            <input class="form-control" type="text" placeholder="" id="title" value="test" name="title">
 
-                        <label for="URL">URL</label>
-                        <input class="form-control" type="text" placeholder="" id="URL" value="test.com">
-                        <label for="ImageURL">Image URL</label>
-                        <input class="form-control" type="text" placeholder="" id="ImageURL" value="nicePhoto">
+                            <label for="URL">URL</label>
+                            <input class="form-control" type="text" placeholder="" id="URL" value="test.com" name="URL">
+                            <label for="ImageURL">Image URL</label>
+                            <input class="form-control" type="text" placeholder="" id="ImageURL" value="nicePhoto"
+                                name="image">
 
-                        <label for="Publisher">Publisher</label>
-                        <input class="form-control" type="text" placeholder="" id="Publisher" value="Abdelahman Adel">
+                            <label for="Publisher">Publisher</label>
+                            <input class="form-control" type="text" placeholder="" id="Publisher"
+                                value="Abdelahman Adel" name="publisher">
 
-                        <label for="PrepTime">Prep Time</label>
-                        <input class="form-control" type="number" placeholder="" id="PrepTime" value="23">
+                            <label for="PrepTime">Prep Time</label>
+                            <input class="form-control" type="number" placeholder="" id="PrepTime" value="23"
+                                name="prepTime">
 
-                        <label for="Servings">Servings</label>
-                        <input class="form-control" type="number" placeholder="" id="Servings" value="4">
+                            <label for="Servings">Servings</label>
+                            <input class="form-control" type="number" placeholder="" id="Servings" value="4"
+                                name="servings">
+                        </div>
+                    </div>
+                    <div class="right w-50 px-4">
+                        <h2 class="mb-4">Ingredients</h2>
+                        <div class="grid">
+                            <label for="Ingredient_one">Ingredient 1</label>
+                            <input class="form-control" type="text" name="ingredient-1"
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_one">
+                            <label for="Ingredient_two">Ingredient 2</label>
+                            <input class="form-control" type="text" name="ingredient-2"
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_two">
+                            <label for="Ingredient_three">Ingredient 3</label>
+                            <input class="form-control" type="text" name="ingredient-3"
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_three">
+                            <label for="Ingredient_four">Ingredient 4</label>
+                            <input class="form-control" type="text" name="ingredient-4"
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_four">
+                            <label for="Ingredient_five">Ingredient 5</label>
+                            <input class="form-control" type="text" name="ingredient-5"
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_five">
+                            <label for="Ingredient_six">Ingredient 6</label>
+                            <input class="form-control" type="text" name="ingredient-6"
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_six">
+                        </div>
                     </div>
                 </div>
-                <div class="right w-50 px-4">
-                    <h2 class="mb-4">Ingredients</h2>
-                    <div class="grid">
-                        <label for="Ingredient_one">Ingredient 1</label>
-                        <input class="form-control" type="text" placeholder="Format: 'Quantity,Unit,Description'"
-                            id="Ingredient_one">
-                        <label for="Ingredient_two">Ingredient 2</label>
-                        <input class="form-control" type="text" placeholder="Format: 'Quantity,Unit,Description'"
-                            id="Ingredient_two">
-                        <label for="Ingredient_three">Ingredient 3</label>
-                        <input class="form-control" type="text" placeholder="Format: 'Quantity,Unit,Description'"
-                            id="Ingredient_three">
-                        <label for="Ingredient_four">Ingredient 4</label>
-                        <input class="form-control" type="text" placeholder="Format: 'Quantity,Unit,Description'"
-                            id="Ingredient_four">
-                        <label for="Ingredient_five">Ingredient 5</label>
-                        <input class="form-control" type="text" placeholder="Format: 'Quantity,Unit,Description'"
-                            id="Ingredient_five">
-                        <label for="Ingredient_six">Ingredient 6</label>
-                        <input class="form-control" type="text" placeholder="Format: 'Quantity,Unit,Description'"
-                            id="Ingredient_six">
-                    </div>
+                <div class="d-flex justify-content-center upload mb-5">
+                    <button class="btn bg-main d-flex align-items-center justify-content-center gap-3" type="submit">
+                        <i class="bi bi-cloud-upload"></i> UPLOAD
+                    </button>
                 </div>
-            </form>
-            <div class="d-flex justify-content-center upload mb-5">
-                <button class="btn bg-main d-flex align-items-center justify-content-center gap-3">
-                    <i class="bi bi-cloud-upload"></i> UPLOAD
-                </button>
             </div>
-        </div>
+        </form>
+
     </main>
 </body>
 

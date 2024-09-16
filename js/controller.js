@@ -6,6 +6,7 @@ import searchView from "./view/searchView";
 import resultsView from "./view/resultsView";
 import bookmarkView from "./view/bookmarkView.js";
 import paginationView from "./view/paginationView.js";
+import AddNewRecipe from "./view/addNewRecipe.js";
 if (module.hot) module.hot.accept();
 
 async function getRecipe() {
@@ -90,6 +91,9 @@ function getStoredBookmarks() {
     bookmarkView.renderResults(model.state.bookmarks);
   } else bookmarkView.renderMSG();
 }
+function uploadRecipe(data) {
+  console.log(data);
+}
 function init() {
   recipeView.eventHandler(getRecipe);
   recipeView.servingsClickHandler(updateServings);
@@ -97,5 +101,6 @@ function init() {
   searchView.eventHandler(searchFor);
   paginationView.eventHandler(goToPage);
   bookmarkView.setGetBookmarksHandler(model.saveBookmarks, getStoredBookmarks);
+  AddNewRecipe.getRecipe(uploadRecipe);
 }
 init();
