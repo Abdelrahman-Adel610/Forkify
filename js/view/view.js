@@ -27,4 +27,28 @@ export class View {
                     </p>
                 </div>`;
   }
+  update(data) {
+    const newel = [
+      ...document
+        .createRange()
+        .createContextualFragment(this._generateHTML(data))
+        .querySelectorAll("*"),
+    ];
+    const curr = this._parent.querySelectorAll("*");
+
+    newel.forEach((el, i) => {
+      // UPDATING ATTRIBUTES
+      if (!el.isEqualNode(curr[i])) {
+        [...el.attributes].forEach((el) =>
+          curr[i].setAttribute(el.name, el.value)
+        );
+      }
+      // UPDATING TEXT
+      if (!el.isEqualNode(curr[i]) && el.lastChild?.nodeValue.trim()) {
+        if (curr[i].lastChild.nodeValue !== el.lastChild.nodeValue) {
+          curr[i].lastChild.nodeValue = el.lastChild.nodeValue;
+        }
+      }
+    });
+  }
 }

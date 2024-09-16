@@ -17,6 +17,10 @@ async function getRecipe() {
     recipeView.renderSpinner();
     await model.loadRecipe(id);
     recipeView.renderRecipe(model.state.recipe);
+    /************/
+    const data = model.getDataOfPage(model.state.search.currentPage);
+
+    resultsView.update(data);
   } catch (err) {
     recipeView.renderError();
   }
@@ -63,7 +67,8 @@ function updateServings(num) {
     el.quantity = (num / total) * el.quantity;
   });
   model.state.recipe.servings = num;
-  recipeView.renderRecipe(model.state.recipe);
+  // recipeView.renderRecipe(model.state.recipe);
+  recipeView.update(model.state.recipe);
 }
 function init() {
   recipeView.eventHandler(getRecipe);

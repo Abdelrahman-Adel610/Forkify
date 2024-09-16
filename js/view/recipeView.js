@@ -9,7 +9,7 @@ class RecipeView extends View {
     );
   }
 
-  _generateRecipe(recipe) {
+  _generateHTML(recipe) {
     return `<div class="recipe  w-100 h-100 ">
                     <picture>
                     <img src='${recipe.image}'>
@@ -85,7 +85,7 @@ class RecipeView extends View {
 </li>`;
   }
   async renderRecipe(recipe) {
-    const html = this._generateRecipe(recipe);
+    const html = this._generateHTML(recipe);
     this._parent.innerHTML = html;
   }
   eventHandler(handler) {

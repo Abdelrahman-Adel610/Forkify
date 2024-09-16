@@ -8,14 +8,17 @@ class ResultsView extends View {
     );
   }
   renderResults(data) {
-    this._parent.innerHTML = this._getElements(data);
+    this._parent.innerHTML = this._generateHTML(data);
   }
-  _getElements(data) {
+  _generateHTML(data) {
+    const id = location.hash.slice(1);
+    console.log(id);
+
     return data
       .map(
         (el) =>
           `
-             <div class="item">
+             <div class="item ${el.id === id ? "selected" : ""}">
                       <a href="#${el.id}">
                           <img src="${el.imageUrl}" alt="${el.title}">
                           <h2>${el.title}

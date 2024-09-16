@@ -203,6 +203,10 @@ header .btns button:hover {
     transform: translateY(-0.25rem);
 }
 
+.selected {
+    background-color: #F9F5F3;
+}
+
 .page-ctrl button {
     width: auto;
     background-color: #F9F5F3;
