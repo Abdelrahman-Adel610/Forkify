@@ -2,7 +2,13 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import { API_LINK, ITEMS_PER_PAGE, API_KEY } from "./config";
 import { AJAX } from "./helpers";
+import { recipe } from "./typedef";
+//@ts-check
+
 export const state = {
+  /**
+   * @type {recipe}
+   */
   recipe: {},
   search: {
     query: "",
@@ -12,6 +18,11 @@ export const state = {
   },
   bookmarks: [],
 };
+/**
+ * formats the Recipe object for API to out defined type <recipe>
+ * @param {object} recipe
+ * @returns {recipe}
+ */
 export function recipeFormatter(recipe) {
   return {
     cookingTime: recipe.cooking_time,
@@ -26,6 +37,11 @@ export function recipeFormatter(recipe) {
     bookmarked: Isbookmarked(recipe.id),
   };
 }
+/**
+ * loads the recipe form the API to the state
+ * @param {string} id
+ * @returns {void}
+ */
 export async function loadRecipe(id) {
   try {
     const data = await AJAX(`${API_LINK + id}?key=${API_KEY}`);
@@ -38,6 +54,10 @@ export async function loadRecipe(id) {
 function Isbookmarked(id) {
   return state.bookmarks.some((el) => el.id === id);
 }
+/**
+ * stores all the recipes for based on the search query
+ * @param {string} query
+ */
 export async function search(query) {
   try {
     const data = await AJAX(
@@ -61,6 +81,11 @@ export async function search(query) {
     throw err;
   }
 }
+/**
+ * retuns slice or recipes results
+ * @param {number} page
+ * @returns {Array<object>}
+ */
 export function getDataOfPage(page = state.search.currentPage) {
   state.search.currentPage = page;
   return state.search.results.slice(
@@ -101,6 +126,7 @@ export async function uploadRecipe(data) {
           description: description,
         };
       });
+
     const dataToUpload = {
       cooking_time: +data.prepTime,
       image_url: data.image,

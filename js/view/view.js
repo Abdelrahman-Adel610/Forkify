@@ -1,9 +1,16 @@
+/**
+ * @class parent for all the views
+ * @constructor sets the parent element , welcome and error message for the view
+ */
 export class View {
   constructor(par, err, msg) {
     this._parent = par;
     this._errorMSG = err;
     this._MSG = msg;
   }
+  /**
+   * renders spinner to the view
+   */
   renderSpinner() {
     this._parent.innerHTML = `
         <div class="spinner w-100 d-flex justify-content-center  ">
@@ -11,6 +18,10 @@ export class View {
         </div>
         `;
   }
+  /**
+   * renders error message to the view , by default it renders a stored message
+   * @param {string} [message=this._errorMSG]
+   */
   renderError(message = this._errorMSG) {
     this._parent.innerHTML = `  <div class="message d-flex w-50 gap-3 mt-4 mx-auto ">
                     <i class="bi bi-exclamation-triangle text-danger"></i>
@@ -19,6 +30,10 @@ export class View {
                     </p>
                 </div>`;
   }
+  /**
+   * renders welcome message to the view , by default it renders a stored message
+   * @param {*string} [message=this._MSG]
+   */
   renderMSG(message = this._MSG) {
     this._parent.innerHTML = `  <div class="message d-flex w-50 gap-3 mt-4 mx-auto ">
    <i class="bi bi-emoji-smile"></i>
@@ -27,6 +42,10 @@ export class View {
                     </p>
                 </div>`;
   }
+  /**
+   * it updates the text and attributes at the this view aleady rendered at the page instead of rerendering all the view, for better performance
+   * @param {string} data HTML code as string
+   */
   update(data) {
     const newel = [
       ...document

@@ -9,6 +9,7 @@ import bookmarkView from "./view/bookmarkView.js";
 import paginationView from "./view/paginationView.js";
 import AddNewRecipe from "./view/addNewRecipe.js";
 import { wait } from "./helpers.js";
+import { recipe } from "./typedef";
 
 import addNewRecipe from "./view/addNewRecipe.js";
 if (module.hot) module.hot.accept();
@@ -96,8 +97,17 @@ function getStoredBookmarks() {
     bookmarkView.renderResults(model.state.bookmarks);
   } else bookmarkView.renderMSG();
 }
+/**
+ * Uploads recipe to API
+ * if (valid )==> display the recipe, mark it with user's icon and bookmark it.
+ * else render error message to the user
+ * @param {object} data
+ */
 async function uploadRecipe(data) {
   try {
+    /**
+     * @type {recipe}
+     */
     let recipe = await model.uploadRecipe(data);
     recipeView.renderRecipe(recipe);
     history.pushState(null, "", `#${recipe.id}`);
@@ -114,6 +124,10 @@ async function uploadRecipe(data) {
     AddNewRecipe.renderError(err.message);
   }
 }
+/**
+ * Runs all the event handlers of all the site ,events all handled in the view class which is responsible for all DOM staff ,so we pass to View classes functions to be excuted on each event (publisher subscriber method)
+ * @returns {void}
+ */
 function init() {
   recipeView.eventHandler(getRecipe);
   recipeView.servingsClickHandler(updateServings);
