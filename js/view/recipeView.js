@@ -1,5 +1,5 @@
 import { View } from "./view.js";
-import fractional from "fractional/index.js";
+import { Fraction } from "../../node_modules/fractional";
 class RecipeView extends View {
   constructor() {
     super(
@@ -89,9 +89,9 @@ class RecipeView extends View {
 
   _getIngrident(item) {
     return `<li> <i class="bi bi-check2"></i>
-          ${item.quantity ? new fractional.Fraction(item.quantity) : ""} ${
-      item.unit
-    } ${item.description} 
+          ${item.quantity ? new Fraction(item.quantity) : ""} ${item.unit} ${
+      item.description
+    } 
 </li>`;
   }
   async renderRecipe(recipe) {
