@@ -1,7 +1,7 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import { API_LINK, ITEMS_PER_PAGE, API_KEY } from "./config";
-import { getJSON, sendJSON } from "./helpers";
+import { AJAX } from "./helpers";
 export const state = {
   recipe: {},
   search: {
@@ -13,7 +13,6 @@ export const state = {
   bookmarks: [],
 };
 export function recipeFormatter(recipe) {
-
   return {
     cookingTime: recipe.cooking_time,
     id: recipe.id,
@@ -29,7 +28,7 @@ export function recipeFormatter(recipe) {
 }
 export async function loadRecipe(id) {
   try {
-    const data = await getJSON(`${API_LINK + id}`);
+    const data = await AJAX(`${API_LINK + id}?key=${API_KEY}`);
     state.recipe = recipeFormatter(data.data.recipe);
   } catch (err) {
     // alert(err.message);
@@ -41,8 +40,8 @@ function Isbookmarked(id) {
 }
 export async function search(query) {
   try {
-    const data = await getJSON(
-      `${API_LINK}?search=${query.toLocaleLowerCase()}`
+    const data = await AJAX(
+      `${API_LINK}?search=${query.toLocaleLowerCase()}&key=${API_KEY}`
     );
     const { recipes } = data.data;
     state.search.query = query;
@@ -52,6 +51,7 @@ export async function search(query) {
         title: el.title,
         publisher: el.publisher,
         image: el.image_url,
+        ...(el.key && { key: el.key }),
       };
     });
     state.search.maxPages = Math.ceil(
@@ -110,7 +110,7 @@ export async function uploadRecipe(data) {
       source_url: data.URL,
       title: data.title,
     };
-    const recipe = await sendJSON(`${API_LINK}?key=${API_KEY}`, dataToUpload);
+    const recipe = await AJAX(`${API_LINK}?key=${API_KEY}`, dataToUpload);
     return recipe.data.recipe;
   } catch (err) {
     throw err;

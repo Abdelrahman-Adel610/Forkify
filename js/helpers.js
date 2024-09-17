@@ -10,34 +10,31 @@ async function tirmAfter(s) {
     }, s * 1000);
   });
 }
-
-export async function getJSON(url) {
+export async function wait(time) {
+  return new Promise((res, _) => setTimeout(res, time * 1000));
+}
+export async function AJAX(url, Data = undefined) {
   try {
-    const response = await Promise.race([fetch(url), tirmAfter(TIMEOUT_LIMIT)]);
+    let response;
+    if (Data)
+      response = await Promise.race([
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(Data),
+        }),
+        tirmAfter(TIMEOUT_LIMIT),
+      ]);
+    else {
+      response = await Promise.race([fetch(url), tirmAfter(TIMEOUT_LIMIT)]);
+    }
+
+    console.log(response);
     const data = await response.json();
     if (!response.ok) throw new Error(data.message);
     return data;
-  } catch (err) {
-    throw err;
-  }
-}
-export async function sendJSON(url, data) {
-  try {
-
-    const response = await Promise.race([
-      fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }),
-      tirmAfter(TIMEOUT_LIMIT),
-    ]);
-    const dataBack = await response.json();
-
-    if (!response.ok) throw new Error(data.message);
-    return dataBack;
   } catch (err) {
     throw err;
   }

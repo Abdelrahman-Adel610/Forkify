@@ -1,7 +1,7 @@
 {
   "name": "forkify",
   "version": "1.0.0",
-  "main": "index.js",
+  "default": "index.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
@@ -14,7 +14,8 @@
     "bootstrap-icons": "^1.11.3",
     "core-js": "^3.38.1",
     "fractional": "^1.0.0",
-    "regenerator-runtime": "^0.14.1"
+    "regenerator-runtime": "^0.14.1",
+    "sass": "^1.32.13"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.12.0",

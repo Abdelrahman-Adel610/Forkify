@@ -46,12 +46,20 @@ class RecipeView extends View {
                                 </div>
                             </div>
                         </div>
-                        <div class="right">
+                        <div class="right d-flex align-items-center gap-3">
+                            <div class="person">
+                            ${
+                              recipe.key
+                                ? `<i class="bi bi-person-fill"></i>`
+                                : ""
+                            }
+                            </div>
                             <div class="bookmark">
                                 <i class="bi bi-bookmark${
                                   recipe.bookmarked ? "-fill" : ""
                                 }"></i>
                             </div>
+                        
                         </div>
                     </div>
                     <div class="ingredients py-4">
@@ -109,7 +117,6 @@ class RecipeView extends View {
         e.target.closest(".bi-bookmark") ||
         e.target.closest(".bi-bookmark-fill")
       ) {
-
         handler();
       }
     });

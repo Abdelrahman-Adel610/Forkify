@@ -8,7 +8,9 @@ import resultsView from "./view/resultsView";
 import bookmarkView from "./view/bookmarkView.js";
 import paginationView from "./view/paginationView.js";
 import AddNewRecipe from "./view/addNewRecipe.js";
-import "core-js/stable";
+import { wait } from "./helpers.js";
+
+import addNewRecipe from "./view/addNewRecipe.js";
 if (module.hot) module.hot.accept();
 
 async function getRecipe() {
@@ -98,15 +100,16 @@ async function uploadRecipe(data) {
   try {
     let recipe = await model.uploadRecipe(data);
     recipeView.renderRecipe(recipe);
+    history.pushState(null, "", `#${recipe.id}`);
     recipe = model.recipeFormatter(recipe);
     bookmark(recipe);
+
     AddNewRecipe.renderSpinner();
-    setTimeout(function () {
-      AddNewRecipe.renderMSG();
-    }, SPINNER_TIME * 1000);
-    setTimeout(function () {
-      AddNewRecipe.toggleModal();
-    }, SUCCESS_MSG_TIME * 1000 + SPINNER_TIME * 1000);
+    console.log(await wait(SPINNER_TIME));
+    AddNewRecipe.renderMSG();
+    await wait(SUCCESS_MSG_TIME);
+    AddNewRecipe.toggleModal();
+    addNewRecipe.renderForm();
   } catch (err) {
     AddNewRecipe.renderError(err.message);
   }

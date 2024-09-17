@@ -267,7 +267,7 @@ header .btns button:hover {
     text-transform: uppercase;
 }
 
-.right i {
+.bookmark i {
     color: white;
     background-image: var(--main-gradient);
     border-radius: 50%;
@@ -275,13 +275,25 @@ header .btns button:hover {
 
 }
 
-.right .bookmark {
+.right .bookmark,
+.person {
     transition: all 0.3s;
     cursor: pointer;
 }
 
-.right .bookmark:hover {
+.right .bookmark:hover,
+.person:hover {
     transform: scale(1.05);
+}
+
+.person i {
+    color: rgb(139, 139, 139);
+    border-radius: 50%;
+
+}
+
+.right .person i {
+    font-size: 30px;
 }
 
 .info {
