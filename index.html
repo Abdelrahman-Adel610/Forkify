@@ -35,132 +35,23 @@
                     <button class="btn bm"><i class="bi bi-bookmark text-main"></i> BOOKMARKS</button>
                     <div class="bookmark-list position-absolute end-0 top-100 bg-white w-40 opacity-0 overflow-hidden">
                         <div class="row row-cols-1">
-                            <div class="item d-none">
-                                <a href="#664c8f193e7aa067e94e8706">
-                                    <img src="../../HTML +CSS/final project/omnifood/Images/customer-1.jpg" alt="">
-                                    <h2>Cauliflower Pizza Crust (with BBQ Chicken)
-                                        zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzza
-                                    </h2>
-                                    <p>CLOSET COOKING</p>
-                                </a>
-                            </div>
-                            <div class="message d-flex w-75 gap-3  mt-4 mx-auto d-none">
-                                <i class="bi bi-exclamation-triangle text-danger"></i>
-                                <p>
-                                    No bookmarks yet. Find a nice recipe and bookmark it ;)
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
         <div class="h-100 row position-relative">
-            <div class="list bg-white col-md-4">
+            <div class="list bg-white col-md-4 h-100">
                 <div class="row row-cols-1">
-                    <div class="item">
-                        <a href="#664c8f193e7aa067e94e8706">
-                            <img src="../../HTML +CSS/final project/omnifood/Images/customer-1.jpg" alt="">
-                            <h2>Cauliflower Pizza Crust (with BBQ Chicken)
-                                zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzza
-                            </h2>
-                            <p>CLOSET COOKING</p>
-                        </a>
-                    </div>
                 </div>
                 <div class="row mt-5 mx-4 page-ctrl ">
-                    <button class="me-auto">← page 1</button>
-                    <button class="ms-auto">page 1 →</button>
                 </div>
             </div>
 
             <div class="main-item col">
-                <div class="spinner w-100 d-flex justify-content-center d-none ">
-                    <i class="bi bi-arrow-repeat mt-md-5 "></i>
-                </div>
-                <div class="recipe  w-100 h-100  ">
-                    <picture>
-                        <img src="../../HTML +CSS/final project/omnifood/Images/meal-2.jpg" alt="">
-                    </picture>
-                    <header>
-                        <h2 class=" start-50 position-absolute bg-main text-white px-2 py-2">Cauliflower Pizza Crust
-                            (with BBQ Chicken Pizza)</h2>
-                    </header>
-                    <div class="info d-flex justify-content-between mt-5 w-80 mx-auto py-4">
-                        <div class="left d-flex gap-5">
-                            <div class=" time d-flex gap-3 ">
-                                <i class=" bi bi-stopwatch"></i>
-                                <p>
-                                    <span class="fw-bolder"> 60 </span> minutes
-                                </p>
-                            </div>
-                            <div class="servs d-flex gap-3 ">
-                                <i class="bi bi-people"></i>
-                                <p> <span class="fw-bolder"> 4 </span> servings</p>
-                                <div class="plusMinus">
-
-                                    <i class="bi bi-dash-circle"></i>
-
-                                    <i class="bi bi-plus-circle"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="bookmark">
-                                <i class="bi bi-bookmark "></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ingredients py-4">
-                        <h2 class="text-center">Recipe ingredients</h2>
-                        <ul class="my-4">
-                            <li> <i class="bi bi-check2"></i> 4
-                                oz cream cheese room temperature</li>
-                            <li> <i class="bi bi-check2"></i> 4
-                                oz cream cheese room temperature</li>
-                            <li> <i class="bi bi-check2"></i> 4
-                                oz cream cheese room temperature</li>
-                            <li> <i class="bi bi-check2"></i> 4
-                                oz cream cheese room temperature</li>
-                            <li> <i class="bi bi-check2"></i> 4
-                                oz cream cheese room temperature</li>
-                            <li> <i class="bi bi-check2"></i> 4
-                                oz cream cheese room temperature</li>
-                            <li> <i class="bi bi-check2"></i> 4
-                                oz cream cheese room temperature</li>
-                            <li> <i class="bi bi-check2"></i> 4
-                                oz cream cheese room temperature</li>
-                            <li> <i class="bi bi-check2"></i> 4
-                                oz cream cheese room temperature</li>
-                        </ul>
-                    </div>
-                    <div
-                        class="howToCook text-center w-75 mx-auto d-flex flex-column align-items-center gap-3 justify-content-center mt-4">
-                        <h2>How to cook it</h2>
-                        <p>
-                            This recipe was carefully designed and tested by <span class="fw-bolder"> Closet
-                                Cooking.</span> Please check out directions at their website.
-                        </p>
-                        <a class="btn bg-main d-inline-block" href="#">Directions →</a>
-                    </div>
-                </div>
-                <div class="message d-flex w-50 gap-3 mt-4 mx-auto d-none">
-                    <i class="bi bi-emoji-smile"></i>
-                    <p>
-                        Start by searching for a recipe or an ingredient. Have fun!
-                    </p>
-                </div>
-                <div class="error d-flex w-50 gap-3 mt-4 mx-auto ">
-                    <i class="bi bi-exclamation-triangle text-danger"></i>
-                    <p>
-                        Start by searching for a recipe or an ingredient. Have fun!
-                    </p>
-                </div>
             </div>
         </div>
-
         <!-- ADD RECIPE -->
-
         <div class="overlay position-fixed top-0 bottom-0 start-0 end-0 h-100 d-none">
         </div>
         <form
@@ -175,25 +66,22 @@
                         <h2 class="mb-4">Recipe data</h2>
                         <div class="grid">
                             <label for="title">Title</label>
-                            <input class="form-control" type="text" placeholder="" id="title" value="test" name="title">
+                            <input class="form-control" type="text" placeholder="" id="title" name="title">
 
                             <label for="URL">URL</label>
-                            <input class="form-control" type="text" placeholder="" id="URL" value="test.com" name="URL">
+                            <input class="form-control" type="text" placeholder="" id="URL" name="URL">
                             <label for="ImageURL">Image URL</label>
-                            <input class="form-control" type="text" placeholder="" id="ImageURL" value="nicePhoto"
-                                name="image">
+                            <input class="form-control" type="text" placeholder="" id="ImageURL" name="image">
 
                             <label for="Publisher">Publisher</label>
                             <input class="form-control" type="text" placeholder="" id="Publisher"
                                 value="Abdelahman Adel" name="publisher">
 
                             <label for="PrepTime">Prep Time</label>
-                            <input class="form-control" type="number" placeholder="" id="PrepTime" value="23"
-                                name="prepTime">
+                            <input class="form-control" type="number" placeholder="" id="PrepTime" name="prepTime">
 
                             <label for="Servings">Servings</label>
-                            <input class="form-control" type="number" placeholder="" id="Servings" value="4"
-                                name="servings">
+                            <input class="form-control" type="number" placeholder="" id="Servings" name="servings">
                         </div>
                     </div>
                     <div class="right w-50 px-4">
@@ -201,23 +89,22 @@
                         <div class="grid">
                             <label for="Ingredient_one">Ingredient 1</label>
                             <input class="form-control" type="text" name="ingredient-1"
-                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_one"
-                                value="10,kg,rice">
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_one">
                             <label for="Ingredient_two">Ingredient 2</label>
                             <input class="form-control" type="text" name="ingredient-2"
-                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_two" value="">
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_two">
                             <label for="Ingredient_three">Ingredient 3</label>
                             <input class="form-control" type="text" name="ingredient-3"
-                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_three" value="">
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_three">
                             <label for="Ingredient_four">Ingredient 4</label>
                             <input class="form-control" type="text" name="ingredient-4"
-                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_four" value="">
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_four">
                             <label for="Ingredient_five">Ingredient 5</label>
                             <input class="form-control" type="text" name="ingredient-5"
-                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_five" value="">
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_five">
                             <label for="Ingredient_six">Ingredient 6</label>
                             <input class="form-control" type="text" name="ingredient-6"
-                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_six" value="">
+                                placeholder="Format: 'Quantity,Unit,Description'" id="Ingredient_six">
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,6 @@ export async function AJAX(url, Data = undefined) {
       response = await Promise.race([fetch(url), tirmAfter(TIMEOUT_LIMIT)]);
     }
 
-    console.log(response);
     const data = await response.json();
     if (!response.ok) throw new Error(data.message);
     return data;

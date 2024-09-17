@@ -47,6 +47,9 @@ main {
     margin-block: 96px;
 }
 
+.list {
+    min-height: 78.125rem;
+}
 
 .logo img {
     height: 3.125rem;
@@ -373,9 +376,6 @@ header .btns button:hover {
     text-transform: uppercase;
 }
 
-/* .addRecipe i {
-    cursor: pointer;
-} */
 .close i {
     cursor: pointer;
     color: black;

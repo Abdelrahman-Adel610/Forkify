@@ -7,6 +7,7 @@ class PaginationView extends View {
       "Start by searching for a recipe or an ingredient. Have fun!"
     );
   }
+  
   renderPagination(currentPage, options = { left, right }) {
     this._clear();
 

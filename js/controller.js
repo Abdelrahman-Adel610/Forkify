@@ -105,7 +105,7 @@ async function uploadRecipe(data) {
     bookmark(recipe);
 
     AddNewRecipe.renderSpinner();
-    console.log(await wait(SPINNER_TIME));
+    await wait(SPINNER_TIME);
     AddNewRecipe.renderMSG();
     await wait(SUCCESS_MSG_TIME);
     AddNewRecipe.toggleModal();
