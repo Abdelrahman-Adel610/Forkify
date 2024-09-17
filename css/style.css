@@ -41,14 +41,14 @@ li {
 }
 
 main {
-    min-height: 78.125rem;
+    min-height: 100vh;
     width: 95%;
     border-radius: .625rem;
     margin-block: 96px;
 }
 
 .list {
-    min-height: 78.125rem;
+    min-height: 100vh;
 }
 
 .logo img {
@@ -103,8 +103,6 @@ input.search+button:hover,
     transform: scale(1.1, 1.05);
     color: white;
 }
-
-
 
 header .btns button {
     font-size: .875rem;

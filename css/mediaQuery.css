@@ -3,10 +3,6 @@
         min-height: 87.5rem;
     }
 
-    main {
-        height: 84.375rem;
-    }
-
     .message {
         width: 75% !important;
     }
@@ -17,11 +13,6 @@
     html {
         font-size: 90%;
     }
-
-    main {
-        min-height: 89rem;
-    }
-
 
     .info {
         flex-direction: column;
@@ -40,6 +31,10 @@
     .addRecipe {
         width: 90% !important;
     }
+
+    .page-ctrl {
+        margin-bottom: 2rem;
+    }
 }
 
 @media screen and (max-width:47.75em) {
@@ -49,7 +44,6 @@
     }
 
     main {
-        height: auto;
         margin-block: 2rem;
     }
 
@@ -74,6 +68,10 @@
         padding-bottom: 3rem !important;
     }
 
+
+    .page-ctrl {
+        margin-bottom: 0rem;
+    }
 
     .howToCook {
         margin: auto;

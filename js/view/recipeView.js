@@ -1,5 +1,5 @@
 import { View } from "./view.js";
-import fractional from "fractional";
+import fractional from "fractional/index.js";
 class RecipeView extends View {
   constructor() {
     super(
@@ -74,7 +74,7 @@ class RecipeView extends View {
                         </ul>
                     </div>
                     <div
-                        class="howToCook text-center w-75 mx-auto d-flex flex-column align-items-center gap-3 justify-content-center mt-4">
+                        class="howToCook text-center w-75 mx-auto d-flex flex-column align-items-center gap-3 justify-content-center my-4">
                         <h2>How to cook it</h2>
                         <p>
                             This recipe was carefully designed and tested by <span class="fw-bolder"> Closet
